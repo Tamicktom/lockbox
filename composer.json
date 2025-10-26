@@ -1,0 +1,46 @@
+{
+    "name": "tamicktom/lockbox",
+    "description": "Apenas um projeto de testudos",
+    "type": "project",
+    "require": {
+        "php": ">=8.1",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^1.11",
+        "squizlabs/php_codesniffer": "^3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tamicktom\\Lockbox\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tamicktom\\Lockbox\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8000 -t public",
+        "test": "phpunit",
+        "stan": "phpstan analyse src --level=max",
+        "cs:check": "phpcs",
+        "cs:fix": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Tamicktom",
+            "email": "rickpokemon38@gmail.com"
+        }
+    ]
+}

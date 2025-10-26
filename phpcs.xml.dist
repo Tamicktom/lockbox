@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="Lockbox">
+  <description>PSR-12 code style for src and tests.</description>
+  <file>src</file>
+  <file>tests</file>
+  <arg name="basepath" value="."/>
+  <rule ref="PSR12"/>
+</ruleset>
+
