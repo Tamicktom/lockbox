@@ -28,7 +28,7 @@ if (!function_exists('env')) {
     function env(string $key, mixed $default = null): mixed
     {
         $value = $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key);
-        if ($value === false || $value === null) {
+        if ($value == false || $value == null) {
             return $default;
         }
         $normalized = is_string($value) ? strtolower(trim($value)) : $value;

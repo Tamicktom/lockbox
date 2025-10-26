@@ -4,6 +4,13 @@ namespace Tamicktom\Lockbox\Core;
 
 class View
 {
+    /**
+     * Summary of render
+     * @param string $view
+     * @param array<string, mixed> $data
+     * @return string
+     * @throws \RuntimeException
+     */
     public static function render(string $view, array $data = []): string
     {
         $file = view_path($view . '.php');

@@ -26,6 +26,7 @@
     },
     "scripts": {
         "start": "php -S localhost:8000 -t public",
+        "dev": "composer start && composer stan && composer cs:check",
         "test": "phpunit",
         "stan": "phpstan analyse src --level=max",
         "cs:check": "phpcs",

@@ -30,7 +30,16 @@ class Bootstrap
         }
 
         // Timezone
-        date_default_timezone_set((string) env('APP_TIMEZONE', 'UTC'));
+        $APP_TIMEZONE = env('APP_TIMEZONE', 'UTC'); //* Timezone from environment variable
+        $TIMEZONE = timezone_identifiers_list(); //* All available timezones
+        if (!in_array($APP_TIMEZONE, $TIMEZONE)) {
+            $APP_TIMEZONE = 'UTC'; //* Default timezone if not found
+        }
+        $timezoneId = array_search($APP_TIMEZONE, $TIMEZONE); //* Timezone ID from the environment variable
+        if ($timezoneId === false) {
+            $timezoneId = 'UTC'; //* Default timezone if not found
+        }
+        date_default_timezone_set((string) $timezoneId);
 
         // Load configuration files
         Config::loadAll(config_path());

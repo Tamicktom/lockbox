@@ -64,6 +64,14 @@ class Router
         return '#^' . $regex . '$#';
     }
 
+    /**
+     * Summary of invokeHandler
+     * @param mixed $handler
+     * @param Request $request
+     * @param array<string, string> $params
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
     private function invokeHandler(mixed $handler, Request $request, array $params): mixed
     {
         if ($handler instanceof Closure) {

@@ -4,6 +4,7 @@ namespace Tamicktom\Lockbox\Core;
 
 final class Config
 {
+    /** @var array<string, array<string, mixed>> $config */
     private static array $config = [];
 
     public static function loadAll(string $configDirectoryPath): void

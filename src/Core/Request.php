@@ -4,6 +4,15 @@ namespace Tamicktom\Lockbox\Core;
 
 class Request
 {
+    /**
+     * Summary of __construct
+     * @param string $method
+     * @param string $path
+     * @param array<string, string> $queryParams
+     * @param array<string, string> $headers
+     * @param array<string, mixed> $bodyParams
+     * @param ?array<string, mixed> $jsonBody
+     */
     public function __construct(
         public readonly string $method,
         public readonly string $path,
@@ -11,7 +20,8 @@ class Request
         public readonly array $headers,
         public readonly array $bodyParams,
         public readonly ?array $jsonBody
-    ) {}
+    ) {
+    }
 
     public static function fromGlobals(): self
     {
@@ -30,12 +40,17 @@ class Request
             }
         }
 
+        /** @var array<string, string> $queryParams */
+        $queryParams = $_GET;
+        /** @var array<string, mixed> $bodyParams */
+        $bodyParams = $_POST;
+
         return new self(
             method: $method,
             path: rtrim($path, '/') === '' ? '/' : rtrim($path, '/'),
-            queryParams: $_GET ?? [],
+            queryParams: $queryParams,
             headers: $headers,
-            bodyParams: $_POST ?? [],
+            bodyParams: $bodyParams,
             jsonBody: $jsonBody
         );
     }

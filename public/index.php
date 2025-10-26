@@ -17,6 +17,7 @@ $router = new Router();
 
 // Register routes
 require dirname(__DIR__) . '/routes/web.php';
+require dirname(__DIR__) . '/routes/api.php';
 
 $result = $router->dispatch($request);
 
